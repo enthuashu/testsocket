@@ -30,6 +30,7 @@ const socketIO = (io) => {
     //send and get message
     socket.on("sendMessage", ({ senderId, receiverId, text }) => {
       const user = getUser(receiverId);
+      console.log("sending message", text);
 
       if (user)
         io.to(user.socketId).emit("getMessage", {
